@@ -1,5 +1,5 @@
 {
-  "name": "drupal/adcetera_drupal",
+  "name": "adcetera/adcetera_drupal",
   "description": "Adcetera Drupal - Tools for documentation, testing, and handling Internet Explorer.",
   "type": "drupal-module",
   "minimum-stability": "dev",
