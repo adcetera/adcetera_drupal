@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function adcetera_drupal_theme() {
+  return [
+    'adcetera_styleguide' => [
+      'render element' => 'form'
+    ]
+  ];
+}
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * @param array $attachments
+ */
+function adcetera_drupal_page_attachments(array &$attachments) {
+  $currentUser = \Drupal::currentUser();
+  $settings = \Drupal::config('adcetera_drupal.settings');
+
+  // Check context
+  if (!$currentUser->isAnonymous()) {
+
+    $drupalSettings = [
+      'has_style_guide' => !empty($settings->get('styleguide')),
+      'has_docs' => !empty($settings->get('documentation_package')),
+    ];
+
+    // Attach the library
+    $attachments['#attached']['library'][] = 'adcetera_drupal/base';
+    $attachments['#attached']['drupalSettings']['adcetera_drupal'] = $drupalSettings;
+  }
+
+  $ieWarning = $settings->get('ie_warning');
+  if ($ieWarning) {
+    // Get mode
+    $ieWarningMode = $settings->get('ie_warning_mode');
+    if ($ieWarningMode == 'modal') {
+      $attachments['#attached']['library'][] = 'adcetera_drupal/ie';
+      $attachments['#attached']['drupalSettings']['adcetera_drupal_ie_message'] = $settings->get('ie_warning_message');
+    }
+    if ($ieWarningMode == 'redirect') {
+      $redirect = strpos($settings->get('ie_warning_redirect'), 'http') !== false ?
+        '"' . $settings->get('ie_warning_redirect') . '";'
+        : 'window.location.origin + "' . $settings->get('ie_warning_redirect') . '";';
+
+      $attachments['#attached']['html_head'][] = [
+        [
+          '#type' => 'html_tag',
+          '#tag' => 'script',
+          '#value' => '
+            if (window.document.documentMode) {
+              window.location = ' . $redirect . '
+            }
+          '
+        ],
+        'ie-warning-script',
+      ];
+    }
+  }
+
+  // Prevent robots from indexing sites hosted on DEV/TEST environments
+  if (getEnvironmentVariable() !== 'prod') {
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#type' => 'html_tag',
+        '#tag' => 'meta',
+        '#attributes' => [
+          'name' => 'robots',
+          'content' => 'noindex, nofollow'
+        ]
+      ],
+      'prevent-indexing-tag',
+    ];
+  }
+}
+
+function getEnvironmentVariable() {
+  if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+    return $_ENV['AH_SITE_ENVIRONMENT'];
+  }
+  else {
+    return 'LOCAL';
+  }
+}

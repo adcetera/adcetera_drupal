@@ -1,0 +1,38 @@
+adcetera_drupal.site_config:
+  path: '/admin/config/development/adcetera'
+  defaults:
+    _form: '\Drupal\adcetera_drupal\Form\SiteConfigurationForm'
+    _title: 'Adcetera Test and Deploy'
+  requirements:
+    _permission: 'access administration pages'
+    _role: 'administrator'
+  options:
+    _admin_route: TRUE
+
+adcetera_drupal.docs_config:
+  path: '/admin/config/development/adcetera/documentation'
+  defaults:
+    _form: '\Drupal\adcetera_drupal\Form\DocumentationSettingsForm'
+    _title: 'Site Documentation'
+  requirements:
+    _permission: 'access administration pages'
+    _role: 'administrator'
+  options:
+    _admin_route: TRUE
+
+adcetera_drupal.doclinks:
+  path: '/admin/documentation'
+  defaults:
+    _controller: '\Drupal\adcetera_drupal\Controller\DocumentationController::index'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+adcetera_drupal.styleguide:
+  path: '/styleguide'
+  defaults:
+    _form:  '\Drupal\adcetera_drupal\Form\StyleGuideForm'
+    _title: 'Style Guide'
+  requirements:
+    _permission: 'access administration pages'

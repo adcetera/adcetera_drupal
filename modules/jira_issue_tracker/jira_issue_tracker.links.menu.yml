@@ -1,0 +1,5 @@
+jira_issue_tracker.settings:
+  title: 'Issue Collector'
+  description: 'Configure the issue collector settings.'
+  route_name: jira_issue_tracker.settings_form
+  parent: adcetera_drupal.setup

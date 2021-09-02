@@ -1,0 +1,12 @@
+
+.navbar {
+  padding: 18px !important;
+  position: fixed;
+  width: 100%;
+  z-index: 3000;
+
+  .navbar-brand {
+    padding-left: 50px;
+    padding-top: 7px
+  }
+}

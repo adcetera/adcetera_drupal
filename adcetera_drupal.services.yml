@@ -1,0 +1,4 @@
+services:
+  adcetera_drupal.docasset_manager:
+    class: '\Drupal\adcetera_drupal\DocsAssetManager'
+    arguments: ['@config.factory']

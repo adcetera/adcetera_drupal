@@ -1,0 +1,4 @@
+adcetera_drupal.issue_tracker.tab:
+  title: 'Issue Collector'
+  route_name: jira_issue_tracker.settings_form
+  base_route: adcetera_drupal.site_config

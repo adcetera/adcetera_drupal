@@ -1,0 +1,54 @@
+
+// Grays
+// ===================================
+$gray-extralight: #f7f7f7;
+$gray-light: #e5e5e5;
+$gray-medium: #ced2d6;
+$gray-dark: #b2bac1;
+$gray-extradark: #5b6670;
+$gray-ultradark: #2c2c31;
+
+// Blues
+// ===================================
+$blue-medium: #00aec7;
+$blue-dark: #100f9f;
+$blue-drupal: #2f91da;
+$blue-ada-highlight: #0078d7;
+
+// Red
+// ===================================
+$red-light: #f4333f;
+$red-medium: #c7131e;
+$red-dark: #7a0c0c;
+
+// Colors class generator
+// ===================================
+$colors: (
+
+  gray: (
+    extralight: #f7f7f7,
+    light: #e5e5e5,
+    medium: #ced2d6,
+    dark: #b2bac1,
+    extradark: #5b6670,
+    ultradark: #2c2c31,
+  ),
+
+  blue: (
+    medium: #00aec7,
+    dark: #100f9f,
+    drupal: #2f91da,
+  ),
+
+  red: (
+    light: #f4333f,
+    medium: #c7131e,
+    dark: #7a0c0c,
+  ),
+
+  bw: (
+    black: #000000,
+    white: #ffffff,
+  ),
+
+);

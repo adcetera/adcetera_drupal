@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * @param array $attachments
+ */
+function jira_issue_tracker_page_attachments(array &$attachments) {
+  $settings = \Drupal::config('jira_issue_tracker.settings');
+  $embedLink = $settings->get('embed_link');
+
+  if (!empty($embedLink)) {
+
+    /** @var \Drupal\Core\Routing\AdminContext $admin_context */
+    $adminContext = \Drupal::service('router.admin_context');
+
+    // Don't load Jira script if admin page
+    if (!$adminContext->isAdminRoute()) {
+      $attachments['#attached']['library'][] = 'jira_issue_tracker/jira_issue_tracker';
+      $attachments['#attached']['html_head'][] = [
+        [
+          '#type' => 'html_tag',
+          '#tag' => 'script',
+          '#value' => '',
+          '#attributes' => array('src' => $embedLink),
+        ],
+        'jira-issue-tracker',
+      ];
+    }
+  }
+}

@@ -1,0 +1,29 @@
+adcetera_drupal.settings:
+  route_name: adcetera_drupal.site_config
+  title: 'Adcetera Test and Deploy'
+  description: 'Configure the Adcetera Test and Deploy modules.'
+  parent: system.admin_config_development
+
+adcetera_drupal.admin_settings_form:
+  title: 'Site Documentation'
+  route_name: adcetera_drupal.doclinks
+  description: 'Site Documentation'
+  parent: help.main
+  weight: 99
+  options:
+    attributes:
+      target: _blank
+      id:
+        - adc_site_documentation_link
+
+adcetera_drupal.style_settings_form:
+  title: 'Style Guide'
+  route_name: adcetera_drupal.styleguide
+  description: 'Style Guide'
+  parent: help.main
+  weight: 100
+  options:
+    attributes:
+      target: _blank
+      id:
+        - adc_site_styleguide_link

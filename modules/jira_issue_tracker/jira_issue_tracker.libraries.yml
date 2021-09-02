@@ -1,0 +1,7 @@
+jira_issue_tracker:
+  version: 1.x
+  js:
+    js/jira.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

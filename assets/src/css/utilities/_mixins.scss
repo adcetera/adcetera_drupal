@@ -1,0 +1,109 @@
+// Media queries
+// =============================================
+// Desktop
+@mixin desktop-lg {
+  	@media (min-width: 1440px) and (max-width: 1679px) { @content; }
+}
+
+@mixin desktop-md {
+  	@media (min-width: 1200px) and (max-width: 1439px) { @content; }
+}
+
+@mixin desktop-sm {
+  	@media (min-width: 992px) and (max-width: 1199px) { @content; }
+}
+
+// Mobile all
+@mixin mobile {
+    @media (max-width: 991px) { @content; }
+}
+
+// Tablet
+@mixin tablet {
+	@media (min-width: 768px) and (max-width: 991px) { @content; }
+}
+
+// Phone
+@mixin phone-lg {
+    @media (max-width: 767px) { @content; }
+}
+
+@mixin phone-md {
+    @media (max-width: 599px) { @content; }
+}
+
+@mixin phone-sm {
+    @media (max-width: 479px) { @content; }
+}
+
+// iPad
+@mixin ipad {
+	@media (device-width: 1024px) and (orientation: landscape) { @content; }
+}
+
+// Disable hovers
+@mixin nohover {
+	@media (device-width: 1024px) and (orientation: landscape), (max-width: 991px) { @content; }
+}
+
+// Centering
+// =============================================
+@mixin center-vert {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin center-horz {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin center-both {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// Transition default
+// $e = property to animate
+// =============================================
+@mixin trans-pr($e) {
+	transition: $e 0.15s ease-out;
+}
+
+// Z-Index
+// =============================================
+@mixin zindex($n) {
+	position: relative;
+	z-index: $n;
+}
+
+// Rotate
+// =============================================
+@mixin rotate($r) {
+	transform: rotate($r);
+}
+
+// No blue select box on click
+// =============================================
+@mixin noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// Box shadow
+// =============================================
+@mixin shadow {
+	box-shadow: 0 4px 10px rgba(black, 0.10);
+}
+
+@mixin shadow-dark {
+  box-shadow: 0 4px 10px rgba(black, 0.20);
+}

@@ -1,0 +1,16 @@
+base:
+  version: VERSION
+  js:
+    js/script.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+ie:
+  version: VERSION
+  header: TRUE
+  js:
+    js/warn.js: {}
+  dependencies:
+    - core/drupalSettings

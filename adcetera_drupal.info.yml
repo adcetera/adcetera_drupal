@@ -1,0 +1,6 @@
+name: 'Adcetera - Drupal'
+type: module
+description: 'This module provides documentation and testing tools for Drupal websites.'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: Adcetera

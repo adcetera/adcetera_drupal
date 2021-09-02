@@ -1,0 +1,9 @@
+adcetera_drupal.settings.tab:
+  title: 'Site Settings'
+  route_name: adcetera_drupal.site_config
+  base_route: adcetera_drupal.site_config
+
+adcetera_drupal.documentation.tab:
+  title: 'Documentation Setup'
+  route_name: adcetera_drupal.docs_config
+  base_route: adcetera_drupal.site_config

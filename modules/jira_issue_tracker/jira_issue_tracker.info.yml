@@ -1,0 +1,8 @@
+name: Adcetera - Jira Issue Collector
+type: module
+description: Provides a Jira Issue Collector embed for testing.
+core: 8.x
+package: Adcetera
+core_version_requirement: ^8 || ^9
+dependencies:
+  - adcetera:adcetera_drupal

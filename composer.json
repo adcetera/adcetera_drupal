@@ -1,0 +1,15 @@
+{
+  "name": "drupal/adcetera_drupal",
+  "description": "Adcetera Drupal - Tools for documentation, testing, and handling Internet Explorer.",
+  "type": "drupal-module",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Adcetera",
+      "email": "hello@adcetera.com",
+      "homepage": "https://www.adcetera.com",
+      "role": "Maintainer"
+    }
+  ],
+  "license": "GPL-2.0+"
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+        iframe {
+            display: block;
+            background: #fff;
+            border: none;
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="srcFrame" src="doc/" onload="content_finished_loading(this);"></iframe>
+    <script>
+        var content_start_loading = function() {
+            document.getElementById('srcFrame').style.display = 'none';
+        }
+        var content_finished_loading = function(iFrame) {
+            var frame = iFrame.contentWindow;
+            var style = frame.document.createElement('link');
+            style.rel = 'stylesheet';
+            style.href = window.location.origin + '/DrupalDocs/style.css';
+            frame.document.head.appendChild(style);
+            var script = frame.document.createElement('script');
+            script.src = window.location.origin + '/DrupalDocs/main.js';
+            frame.document.body.appendChild(script);
+            frame.onunload = content_start_loading;
+        }
+    </script>
+</body>
+</html>
