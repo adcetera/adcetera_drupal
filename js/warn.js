@@ -27,6 +27,6 @@
   };
 
   if (window.document.documentMode) {
-    scriptLoader(window.location.origin + '/modules/custom/adcetera_drupal/js/picoModal-3.0.0.min.js', displayWarning);
+    scriptLoader(window.location.origin + '/modules/contrib/adcetera_drupal/js/picoModal-3.0.0.min.js', displayWarning);
   }
 }(drupalSettings));

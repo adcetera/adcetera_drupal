@@ -73,10 +73,10 @@ class DocumentationController extends ControllerBase {
             var frame = iFrame.contentWindow;
             var style = frame.document.createElement('link');
             style.rel = 'stylesheet';
-            style.href = window.location.origin + '/modules/custom/adcetera_drupal/assets/style.css';
+            style.href = window.location.origin + '/modules/contrib/adcetera_drupal/assets/style.css';
             frame.document.head.appendChild(style);
             var script = frame.document.createElement('script');
-            script.src = window.location.origin + '/modules/custom/adcetera_drupal/assets/main.js';
+            script.src = window.location.origin + '/modules/contrib/adcetera_drupal/assets/main.js';
             frame.document.body.appendChild(script);
             frame.onunload = content_start_loading;
         }
