@@ -21,17 +21,17 @@ class DocumentationSettingsForm extends FormBase {
   /**
    * @var string
    */
-  protected $documentationPath = 'public://documentation/';
+  protected string $documentationPath = 'public://documentation/';
 
   /**
    * @var string
    */
-  protected $styleguidePath = 'public://styleguide/';
+  protected string $styleguidePath = 'public://styleguide/';
 
   /**
    * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
-  protected $configFactory;
+  protected ConfigFactoryInterface $configFactory;
 
   /**
    * A configuration object.
@@ -43,17 +43,17 @@ class DocumentationSettingsForm extends FormBase {
   /**
    * @var \Drupal\Core\File\FileSystemInterface
    */
-  protected $fileSystem;
+  protected FileSystemInterface $fileSystem;
 
   /**
    * @var \Drupal\adcetera_drupal\DocsAssetManager
    */
-  protected $assetManager;
+  protected DocsAssetManager $assetManager;
 
   /**
    * @var \Drupal\Core\Archiver\ArchiverManager
    */
-  protected $pluginManagerArchiver;
+  protected ArchiverManager $pluginManagerArchiver;
 
   /**
    * DocumentationSettingsForm constructor.
@@ -94,7 +94,6 @@ class DocumentationSettingsForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-
     // Documentation
     $currentPackages = $this->config->get('documentation_package');
     $folders = $this->assetManager->getUploadedDirectoriesForDisplay();
@@ -111,7 +110,7 @@ class DocumentationSettingsForm extends FormBase {
 
     $form['doc'] = array(
       '#type' => 'details',
-      '#title' => t('Documentation'),
+      '#title' => $this->t('Documentation'),
       '#open' => FALSE,
     );
 
@@ -119,7 +118,7 @@ class DocumentationSettingsForm extends FormBase {
       '#type' => 'checkboxes',
       '#title' => $this->t('Available Packages'),
       '#options' => $options,
-      '#default_value' => isset($defaultValues) ? $defaultValues : [],
+      '#default_value' => !empty($defaultValues) ? $defaultValues : [],
     ];
 
     $form['doc']['set_package'] = [
@@ -139,9 +138,9 @@ class DocumentationSettingsForm extends FormBase {
     $form['doc']['zip_file'] = array(
       '#type' => 'managed_file',
       '#name' => 'my_file',
-      '#title' => t('File *'),
+      '#title' => $this->t('File *'),
       '#size' => 20,
-      '#description' => t('ZIP format only'),
+      '#description' => $this->t('ZIP format only'),
       '#upload_validators' => $validators,
       '#upload_location' => $this->documentationPath,
     );
@@ -155,7 +154,7 @@ class DocumentationSettingsForm extends FormBase {
     // Styleguide
     $form['style'] = array(
       '#type' => 'details',
-      '#title' => t('Style Guide'),
+      '#title' => $this->t('Style Guide'),
       '#open' => FALSE,
     );
 
@@ -172,9 +171,9 @@ class DocumentationSettingsForm extends FormBase {
     $form['style']['html_file'] = array(
       '#type' => 'managed_file',
       '#name' => 'my_file',
-      '#title' => t('File *'),
+      '#title' => $this->t('File *'),
       '#size' => 20,
-      '#description' => t('HTML format only'),
+      '#description' => $this->t('HTML format only'),
       '#upload_validators' => $validatorsHtml,
       '#upload_location' => $this->styleguidePath,
       '#default_value' => isset($styleGuideFileId) ? [$styleGuideFileId] : '',

@@ -17,7 +17,7 @@ class StyleGuideForm extends FormBase {
   /**
    * @var \Drupal\adcetera_drupal\DocsAssetManager
    */
-  protected $assetManager;
+  protected DocsAssetManager $assetManager;
 
   /**
    * StyleGuideForm constructor.
