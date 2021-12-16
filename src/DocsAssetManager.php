@@ -22,12 +22,12 @@ class DocsAssetManager {
   /**
    * @var string
    */
-  protected $docPath = '/sites/default/files/documentation';
+  protected string $docPath = '/sites/default/files/documentation';
 
   /**
    * @var string
    */
-  protected $stylePath = '/sites/default/files/styleguide';
+  protected string $stylePath = '/sites/default/files/styleguide';
 
   /**
    * DocsAssetManager constructor.
@@ -50,7 +50,7 @@ class DocsAssetManager {
   /**
    * @return string|null
    */
-  public function getActiveDocumentationPath() {
+  public function getActiveDocumentationPath(): ?string {
     $activePackage = $this->config->get('documentation_package');
     if (isset($activePackage)) {
       return $this->getUploadedDirectoryPath(key($activePackage));
@@ -58,10 +58,10 @@ class DocsAssetManager {
     return null;
   }
 
-  /**
-   * @return array
-   */
-  public function getUploadedDirectoriesForDisplay() {
+    /**
+     * @return array
+     */
+  public function getUploadedDirectoriesForDisplay(): array {
     $retVal = array();
     $dir = $_SERVER['DOCUMENT_ROOT']. $this->docPath;
     $dirs = glob($dir . '/*', GLOB_ONLYDIR);
@@ -69,7 +69,7 @@ class DocsAssetManager {
       foreach ($dirs as $d) {
         $path = explode('/', $d);
         $len = count($path);
-        array_push($retVal, $path[$len - 1]);
+        $retVal[] = $path[$len - 1];
       }
     }
     return $retVal;
@@ -82,7 +82,7 @@ class DocsAssetManager {
    *
    * @return string|null
    */
-  public function getUploadedDirectoryPath($directoryName) {
+  public function getUploadedDirectoryPath($directoryName): ?string {
     $dir = $_SERVER['DOCUMENT_ROOT']. $this->docPath;
     $dirs = glob($dir . '/*', GLOB_ONLYDIR);
     if ($dirs) {
@@ -102,7 +102,7 @@ class DocsAssetManager {
    *
    * @return string|null
    */
-  public function getStyleGuidePath() {
+  public function getStyleGuidePath(): ?string {
     $styleGuideFileId = $this->config->get('styleguide');
     if (isset($styleGuideFileId)) {
       $file = File::load($styleGuideFileId);

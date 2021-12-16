@@ -17,7 +17,7 @@ class DocumentationController extends ControllerBase {
   /**
    * @var \Drupal\adcetera_drupal\DocsAssetManager
    */
-  protected $assetManager;
+  protected DocsAssetManager $assetManager;
 
   /**
    * DocumentationController constructor.
@@ -49,7 +49,7 @@ class DocumentationController extends ControllerBase {
 <head>
     <meta charset=\"UTF-8\">
     <meta name='robots' content='noindex, nofollow' />
-    <title>" . t('Website Reference Guide') . "</title>
+    <title>" . $this->t('Website Reference Guide') . "</title>
     <style type=\"text/css\">
         body {
             margin: 0;

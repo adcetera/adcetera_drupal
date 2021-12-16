@@ -78,10 +78,5 @@ function adcetera_drupal_page_attachments(array &$attachments) {
 }
 
 function getEnvironmentVariable() {
-  if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-    return $_ENV['AH_SITE_ENVIRONMENT'];
-  }
-  else {
-    return 'LOCAL';
-  }
+    return $_ENV['AH_SITE_ENVIRONMENT'] ?? 'LOCAL';
 }
