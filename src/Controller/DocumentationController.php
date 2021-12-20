@@ -17,7 +17,7 @@ class DocumentationController extends ControllerBase {
   /**
    * @var \Drupal\adcetera_drupal\DocsAssetManager
    */
-  protected DocsAssetManager $assetManager;
+  protected $assetManager;
 
   /**
    * DocumentationController constructor.
