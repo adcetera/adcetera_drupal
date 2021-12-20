@@ -22,12 +22,12 @@ class DocsAssetManager {
   /**
    * @var string
    */
-  protected string $docPath = '/sites/default/files/documentation';
+  protected $docPath = '/sites/default/files/documentation';
 
   /**
    * @var string
    */
-  protected string $stylePath = '/sites/default/files/styleguide';
+  protected $stylePath = '/sites/default/files/styleguide';
 
   /**
    * DocsAssetManager constructor.

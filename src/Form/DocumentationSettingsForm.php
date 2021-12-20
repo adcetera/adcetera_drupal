@@ -21,17 +21,17 @@ class DocumentationSettingsForm extends FormBase {
   /**
    * @var string
    */
-  protected string $documentationPath = 'public://documentation/';
+  protected $documentationPath = 'public://documentation/';
 
   /**
    * @var string
    */
-  protected string $styleguidePath = 'public://styleguide/';
+  protected $styleguidePath = 'public://styleguide/';
 
   /**
    * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
-  protected ConfigFactoryInterface $configFactory;
+  protected $configFactory;
 
   /**
    * A configuration object.
@@ -43,17 +43,17 @@ class DocumentationSettingsForm extends FormBase {
   /**
    * @var \Drupal\Core\File\FileSystemInterface
    */
-  protected FileSystemInterface $fileSystem;
+  protected $fileSystem;
 
   /**
    * @var \Drupal\adcetera_drupal\DocsAssetManager
    */
-  protected DocsAssetManager $assetManager;
+  protected $assetManager;
 
   /**
    * @var \Drupal\Core\Archiver\ArchiverManager
    */
-  protected ArchiverManager $pluginManagerArchiver;
+  protected $pluginManagerArchiver;
 
   /**
    * DocumentationSettingsForm constructor.
