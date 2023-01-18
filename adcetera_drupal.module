@@ -62,7 +62,7 @@ function adcetera_drupal_page_attachments(array &$attachments) {
   }
 
   // Prevent robots from indexing sites hosted on DEV/TEST environments
-  if (getEnvironmentVariable() !== 'prod') {
+  if (doesEnvironmentVariableExist() && getEnvironmentVariable() !== 'prod') {
     $attachments['#attached']['html_head'][] = [
       [
         '#type' => 'html_tag',
@@ -75,6 +75,10 @@ function adcetera_drupal_page_attachments(array &$attachments) {
       'prevent-indexing-tag',
     ];
   }
+}
+
+function doesEnvironmentVariableExist() {
+  return !empty($_ENV['AH_SITE_ENVIRONMENT']);
 }
 
 function getEnvironmentVariable() {
